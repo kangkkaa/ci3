@@ -330,3 +330,22 @@ function ms_escape_string($data) {
     $data = str_replace("'", "''", $data );
     return $data;
 }
+
+/*====================================================================
+* DESC		: script 태그 제거
+* INPUT		: string		$item		메시지
+* INPUT		: array			$array		배열
+* INPUT		: array/string	$default	메시지/배열
+* OUTPUT	: void
+* --------------------------------------------------------------------
+* COMMENTS
+* --------------------------------------------------------------------
+* 2020-02-08
+* ==================================================================*/
+
+if ( ! function_exists('element_xss')){
+
+	function element_xss($item, array $array, $default = NULL){
+		return array_key_exists($item, $array) ? script_tag($array[$item]) : $default;
+	}
+}
